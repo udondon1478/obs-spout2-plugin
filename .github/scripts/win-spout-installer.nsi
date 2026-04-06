@@ -56,6 +56,7 @@ Section "Spout 2 OBS Plugin" Section1
 
 	SetOutPath "$INSTDIR\data\locale\"
 	File "..\..\data\locale\en-US.ini"
+	File "..\..\data\locale\es-ES.ini"
 	File "..\..\data\locale\zh-CN.ini"
 	File "..\..\data\locale\pt-BR.ini"
 	CreateDirectory "$SMPROGRAMS\Spout 2 OBS Plugin"
@@ -103,6 +104,7 @@ Section Uninstall
 	Delete "$INSTDIR\bin\64bit\SpoutDX.dll"
 	Delete "$INSTDIR\bin\64bit\SpoutLibrary.dll"
 	Delete "$INSTDIR\data\locale\en-US.ini"
+	Delete "$INSTDIR\data\locale\es-ES.ini"
 	Delete "$INSTDIR\data\locale\pt-BR.ini"
 	Delete "$INSTDIR\data\locale\zh-CN.ini"
 

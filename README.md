@@ -1,5 +1,8 @@
-Spout2 Plugin for OBS Studio (64bit)
-=========
+# Spout2 Plugin for OBS Studio (64bit) - OBS 32.0.4 対応フォーク
+
+> **This is a fork of [Off-World-Live/obs-spout2-plugin](https://github.com/Off-World-Live/obs-spout2-plugin) updated for OBS Studio 32.0.4.**
+>
+> The upstream plugin targets OBS 31.0.x. This fork rebuilds the plugin against OBS 32.0.4 so it can be loaded by the latest version of OBS Studio.
 
 This plugin enables the import and export of shared textures at high resolution to and from [SPOUT2](https://github.com/leadedge/Spout2) compatible
 programs.
@@ -16,31 +19,27 @@ Previously, there was no way of outputting Spout video textures from OBS.
 
 This plugin implements the SPOUT2 SDK, creates an OBS Source from the SPOUT shared texture and a Spout output which sends the content of the OBS canvas to Spout.
 
-Please see installation and usage guide [here](http://docs.offworld.live/#/obs-spout-plugin/README?id=spout-plugin-for-obs-studio)
-
-## Acknowledgements
-
-Thanks to the developer of [OBS-OpenVR-Input-Plugin](https://github.com/baffler/OBS-OpenVR-Input-Plugin) whose source
-helped greatly in getting my head around the OBS API.
-
-Thanks to the OBS team and their discord channel
-
-Thanks to the authors of [SPOUT](https://github.com/leadedge/Spout2) for the library and clear documentation
-
 ## Installation
 
-- Go to the [Releases Page](https://github.com/Off-World-Live/obs-spout2-plugin/releases)
-- Download the windows installer: `OBS_Spout2_Plugin_Installer.exe`
+- Go to the [Releases Page](https://github.com/udondon1478/obs-spout2-plugin/releases)
+- Download the windows installer: `OBS_Spout2_Plugin_Install_v1.11.0.exe`
 - Run the installer (accepting installation from untrusted source)
 - Select the `OBS` directory if not the default install location
 
-> N.B there are no current plans for 32bit builds, although theoretically this should be possible
+> **Requires OBS Studio 32.0.4 or later.** This build is NOT compatible with OBS 31.x or earlier.
+
+## Changes from Upstream
+
+- Updated build configuration to target OBS Studio 32.0.4
+- Updated obs-deps and Qt6 to 2025-08-23 release
+- Added es-ES locale to NSIS installer
+- Fixed submodule URL for CI compatibility (SSH -> HTTPS)
 
 ## Contributing / Building
 
 - Clone this repo recursively
 ```
-git clone --recursive git@github.com:off-world-live/obs-spout2-plugin
+git clone --recursive https://github.com/udondon1478/obs-spout2-plugin
 ```
 - Install [CMAKE min version 3.28](https://cmake.org/download/)
 - Either configure and generate through the CMAKE Gui or through the command line for the `windows-x64` architecture
@@ -48,31 +47,22 @@ git clone --recursive git@github.com:off-world-live/obs-spout2-plugin
 
 ### Building a release locally
 
-- Open `git bash` or similar bash terminal interpreter
-- Run `./scripts/Release.sh <version number>`
-- You should find the executable (installer) and zip file in the main `win-spout` directory
-### Building the windows installer
+```
+cmake --preset windows-x64
+cmake --build build_x64 --config RelWithDebInfo
+```
 
-- Download the latest version of [NSIS here](https://nsis.sourceforge.io/Download);
-- Set the the `APPVERSION` variable in `win-spout-installer.nsi`
-- Compile [win-spout-installer.nsi](./win-spout-installer.nsi)
+## Acknowledgements
 
-Pull Requests welcome!
+Thanks to the original authors at [Off World Live](https://offworld.live) for creating this plugin.
 
-## Contributors
+Thanks to the developer of [OBS-OpenVR-Input-Plugin](https://github.com/baffler/OBS-OpenVR-Input-Plugin) whose source
+helped greatly in getting started with the OBS API.
 
-Thanks to everybody that submitted bug tickets and in particular the code contributors:
+Thanks to the OBS team and their discord channel.
 
-- [@shugen002](https://github.com/shugen002)
-- [@mzlt](https://github.com/mzlt)
-- [@terids](https://github.com/terids)
-
-## Roadmap
-
-- [x] Improve CMakeLists.txt to copy `Spout.dll` automatically (thanks to [@shugen002](https://github.com/shugen002))
-- [x] Spout Output
-- [x] Spout Filter Output
+Thanks to the authors of [SPOUT](https://github.com/leadedge/Spout2) for the library and clear documentation.
 
 ## License
 
-This plugin authored by Campbell Morgan is Copyright Off World Live Ltd, 2019-2021 and [licenced under the GPL V.2](./LICENCE).
+This plugin originally authored by Campbell Morgan is Copyright Off World Live Ltd, 2019-2021 and [licenced under the GPL V.2](./LICENSE).
