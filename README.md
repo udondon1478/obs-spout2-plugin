@@ -22,11 +22,13 @@ This plugin implements the SPOUT2 SDK, creates an OBS Source from the SPOUT shar
 ## Installation
 
 - Go to the [Releases Page](https://github.com/udondon1478/obs-spout2-plugin/releases)
-- Download the windows installer: `OBS_Spout2_Plugin_Install_v1.11.0.exe`
+- Download the windows installer: `OBS_Spout2_Plugin_Install_v1.11.1.exe`
 - Run the installer (accepting installation from untrusted source)
 - Select the `OBS` directory if not the default install location
 
 > **Requires OBS Studio 32.0.4 or later.** This build is NOT compatible with OBS 31.x or earlier.
+
+> **Upgrading from an older version:** If you previously installed the Spout plugin for OBS 31.x or earlier, you must remove the old files from `C:\Program Files\obs-studio\obs-plugins\64bit\` (specifically `win-spout.dll`, `Spout.dll`, `SpoutDX.dll`, `SpoutLibrary.dll`). The .exe installer does this automatically, but if you installed via .zip, delete them manually before installing the new version.
 
 ## Changes from Upstream
 

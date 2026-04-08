@@ -43,6 +43,13 @@ Section "Spout 2 OBS Plugin" Section1
 
 	StrCpy $InstDir "$INSTALL_BASE_DIR"
 
+	; Remove old Spout plugin files from OBS program directory (legacy installation from OBS 31.x or earlier)
+	; These old files conflict with the new plugin and must be removed for OBS 32.x compatibility
+	Delete "$PROGRAMFILES64\obs-studio\obs-plugins\64bit\win-spout.dll"
+	Delete "$PROGRAMFILES64\obs-studio\obs-plugins\64bit\Spout.dll"
+	Delete "$PROGRAMFILES64\obs-studio\obs-plugins\64bit\SpoutDX.dll"
+	Delete "$PROGRAMFILES64\obs-studio\obs-plugins\64bit\SpoutLibrary.dll"
+
 	; Set Section properties
 	SetOverwrite on
 	AllowSkipFiles off
